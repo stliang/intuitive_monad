@@ -1,4 +1,9 @@
 # intuitive_monad
+## Key Functions
+```
+fmap :: (a -> b) -> f a -> f b
+```
+
 ## Functor Law
 ### identity law
 ```
@@ -37,6 +42,7 @@ m >>= return = m
 ```
 
 ### References:
+- Operator [pronunciation](https://stackoverflow.com/questions/7746894/are-there-pronounceable-names-for-common-haskell-operators)
 - Functional Programing is doing [polynomial](https://intuitive-functional-programming.blogspot.com/2017/09/why-is-functional-programming-intuitive_7.html)
 - Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
 
