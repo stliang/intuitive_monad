@@ -7,7 +7,6 @@ fmap :: Functor f => (a -> b) -> f a -> f b
 (>>=) :: m a -> (a -> m b) -> m b
 return :: Monad => a -> m a
 pure :: Applicative m => a -> m a
-pure and return are the same excapt pure might be preferred to return because it does not incur a Monad constraint, only an Applicative constraint
 ```
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
