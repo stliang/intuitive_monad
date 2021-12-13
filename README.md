@@ -37,6 +37,6 @@ m >>= return = m
 ```
 
 ### References:
-Functional Programing is doing [polynomial](https://intuitive-functional-programming.blogspot.com/2017/09/why-is-functional-programming-intuitive_7.html)
-Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
+- Functional Programing is doing [polynomial](https://intuitive-functional-programming.blogspot.com/2017/09/why-is-functional-programming-intuitive_7.html)
+- Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
 
