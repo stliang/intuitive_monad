@@ -1,8 +1,17 @@
 # intuitive_monad
 ## Key Functions
 ```
-fmap :: (a -> b) -> f a -> f b
+fmap :: Functor f => (a -> b) -> f a -> f b
+(.) :: (b -> c) -> (a -> b) -> a -> c
+(<*>) :: Applicative f => f (a -> b) -> f a -> f b
+(>>=) :: m a -> (a -> m b) -> m b
+return :: Monad => a -> m a
+pure :: Applicative m => a -> m a
+pure and return are the same excapt pure might be preferred to return because it does not incur a Monad constraint, only an Applicative constraint
 ```
+### Class Hierarchy
+
+
 
 ## Functor Law
 ### identity law
@@ -42,6 +51,7 @@ m >>= return = m
 ```
 
 ### References:
+- Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
 - Operator [pronunciation](https://stackoverflow.com/questions/7746894/are-there-pronounceable-names-for-common-haskell-operators)
 - Functional Programing is doing [polynomial](https://intuitive-functional-programming.blogspot.com/2017/09/why-is-functional-programming-intuitive_7.html)
 - Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
