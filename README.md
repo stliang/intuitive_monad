@@ -11,15 +11,26 @@ pure :: Applicative m => a -> m a
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
 
-## Functor Law
-### identity law
+## Functor
+### Definition
+```
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
+
+  (<$) :: a        -> f b -> f a
+  (<$) = fmap . const
+```
+### Laws
+#### identity law
 ```
 fmap id = id
 ```
-### composition law
+Identify law gives us base value in folding operation.  Like 0 when folding with (+) or 1 when folding with (*) in type num.
+#### composition law
 ```
 fmap (g . f) = fmap g . fmap f
 ```
+In value transformation inside a functor, the composition law gives us the ability to transform value with a compostion of functions.
 ## Applicative Law
 ### identity law
 ```
