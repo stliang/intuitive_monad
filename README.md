@@ -31,6 +31,14 @@ Identify law gives us base value in folding operation.  Like 0 when folding with
 fmap (g . f) = fmap g . fmap f
 ```
 In value transformation inside a functor, the composition law gives us the ability to transform value with a compostion of functions.
+### Functor Instance
+```
+instance Functor [] where
+  fmap :: (a -> b) -> [a] -> [b]
+  fmap _ []     = []
+  fmap g (x:xs) = g x : fmap g xs
+```
+
 ## Applicative Law
 ### identity law
 ```
