@@ -1,11 +1,27 @@
 # An Algebraic Approach to Programming
 ### Key Functions
+fmap function:
 ```
 fmap :: Functor f => (a -> b) -> f a -> f b
+```
+compose function:
+```
 (.) :: (b -> c) -> (a -> b) -> a -> c
+```
+apply function:
+```
 (<*>) :: Applicative f => f (a -> b) -> f a -> f b
+```
+bind function:
+```
 (>>=) :: m a -> (a -> m b) -> m b
+```
+return function:
+```
 return :: Monad => a -> m a
+```
+pure function:
+```
 pure :: Applicative m => a -> m a
 ```
 ### Class Hierarchy
