@@ -45,6 +45,7 @@ instance Functor [] where
   fmap _ []     = []
   fmap g (x:xs) = g x : fmap g xs
 ```
+The [] is a type constructor where [1] is a list of num
 ### Laws
 #### Identity Law
 ```
