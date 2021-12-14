@@ -1,5 +1,5 @@
 # An Algebraic Approach to Programming
-The polynomial behavior of Algebra is captured by the laws defined in Algebraic objects such as Functor, Applicative, and Monad.  To take an Algebraic approach to programming is to compose and evaluate polynomial equation.
+The polynomial behavior of Algebra is captured by the laws defined in Algebraic objects such as Functor, Applicative, monoid, and Monad.  To take an Algebraic approach to programming is to compose and evaluate polynomial equation.
 ### Key Functions
 fmap function:
 ```
