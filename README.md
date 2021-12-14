@@ -39,7 +39,12 @@ instance Functor [] where
   fmap _ []     = []
   fmap g (x:xs) = g x : fmap g xs
 ```
-
+### Exercise
+```
+Prelude> f = (+) 2
+Prelude> fmap f [1]
+[3]
+```
 ## Applicative
 ### Definition
 ```
@@ -81,6 +86,13 @@ instance Applicative [] where
 
   (<*>) :: [a -> b] -> [a] -> [b]
   gs <*> xs = [ g x | g <- gs, x <- xs ]
+```
+### Exercise
+```
+Prelude> f = (+) 2
+Prelude> g = (*) 2
+Prelude> (<*>) [f,g] [1,2,3,4]
+[3,4,5,6,2,4,6,8]
 ```
 ## Monad Law
 ### identity laws
