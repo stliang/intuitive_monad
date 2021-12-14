@@ -1,4 +1,4 @@
-# intuitive_monad
+# An Algebraic Approach to Programming
 ## Key Functions
 ```
 fmap :: Functor f => (a -> b) -> f a -> f b
@@ -39,7 +39,20 @@ instance Functor [] where
   fmap g (x:xs) = g x : fmap g xs
 ```
 
-## Applicative Law
+## Applicative
+### Definition
+```
+class Functor f => Applicative f where
+  pure  :: a -> f a
+  infixl 4 <*>, *>, <*
+  (<*>) :: f (a -> b) -> f a -> f b
+
+  (*>) :: f a -> f b -> f b
+  a1 *> a2 = (id <$ a1) <*> a2
+
+  (<*) :: f a -> f b -> f a
+  (<*) = liftA2 const
+```
 ### identity law
 ```
 pure id <*> v = v
@@ -74,4 +87,5 @@ m >>= return = m
 - Functional Programing is doing [polynomial](https://intuitive-functional-programming.blogspot.com/2017/09/why-is-functional-programming-intuitive_7.html)
 - Monad is [nesting of functions](https://intuitive-functional-programming.blogspot.com/2017/09/prove-functor-applicative-and-monad-are.html)
 - Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
+- Search Haskell Functions in [Hoogle](https://hoogle.haskell.org/)
 
