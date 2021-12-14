@@ -100,6 +100,8 @@ Identify law gives us base value behavior in folding operation over applicative 
 ```
 pure f <*> pure x = pure (f x)
 ```
+A homomorphism is a map between two algebraic structures of the same type (that is of the same name), that preserves the operations of the structures. That is if a function "f" is put inside an applicative then apply to a value x inside another applicative, the result should be the same as evalue f of x then put it in an applicateive instance.
+
 #### Interchange Law
 ```
 u <*> pure y = pure ($ y) <*> u
