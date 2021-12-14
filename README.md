@@ -20,13 +20,14 @@ class Functor f where
   (<$) :: a        -> f b -> f a
   (<$) = fmap . const
 ```
+fmap allows the transformation of one type to and other type also implies one value to another value
 ### Laws
-#### identity law
+#### Identity Law
 ```
 fmap id = id
 ```
 Identify law gives us base value in folding operation.  Like 0 when folding with (+) or 1 when folding with (*) in type num.
-#### composition law
+#### Composition Law
 ```
 fmap (g . f) = fmap g . fmap f
 ```
@@ -53,21 +54,33 @@ class Functor f => Applicative f where
   (<*) :: f a -> f b -> f a
   (<*) = liftA2 const
 ```
-### identity law
+The "=>" in class definition is a type constraint and I read it literally as Functor f is "greater than or equal to" Applicative f.  That is Appilcative f can not be more general than Functor f.  In another word, Applicative is a subclass of Functor.
+### Laws
+
+#### Identity Law
 ```
 pure id <*> v = v
 ```
-### homomorphism law
+#### Homomorphism Law
 ```
 pure f <*> pure x = pure (f x)
 ```
-### interchange law
+#### Interchange Law
 ```
 u <*> pure y = pure ($ y) <*> u
 ```
-### composition law
+#### Composition Law
 ```
 pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
+```
+### Applicative Instance
+```
+instance Applicative [] where
+  pure :: a -> [a]
+  pure x = [x]
+
+  (<*>) :: [a -> b] -> [a] -> [b]
+  gs <*> xs = [ g x | g <- gs, x <- xs ]
 ```
 ## Monad Law
 ### identity laws
