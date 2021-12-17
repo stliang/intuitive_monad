@@ -27,6 +27,10 @@ pure function:
 ```
 pure :: Applicative m => a -> m a
 ```
+Left-to-right Kleisli function:
+```
+(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
+```
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
 
@@ -159,14 +163,24 @@ Maybe can be think of as a single cell list, that is may be there is something i
 ### Laws
 #### Identity Laws
 ```
-return a >>= f = f
-m >>= return = m
+return a >>= k  =  k a
+m >>= return    =  m
 ```
+Same law expressed Kleisli arrow
+```
+return >=> g  =  g
+g >=> return  =  g
+```
+These are the left and right identities.
 #### Associativity Law
 ```
-(m >>= f) >>= g = m >>= (\x -> f x >>= g)
+m >>= (\x -> k x >>= h)  =  (m >>= k) >>= h
 ```
-
+Same law expressed Kleisli arrow
+```
+(g >=> h) >=> k  =  g >=> (h >=> k)
+```
+The associativity of a binary operator allows for any number of operands to be combined by applying the binary operator with any arbitrary grouping to get the same well-defined result, just like the result of summing up a list of numbers is fully defined by the binary (+) operator no matter which parenthesization is used (yes, just like in folding a list of any type of monoidal values).
 ### References:
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
 - => Type [constraint](https://stackoverflow.com/questions/39084551/what-does-the-sign-mean-in-haskell)
