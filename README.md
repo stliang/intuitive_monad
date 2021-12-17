@@ -129,8 +129,13 @@ Prelude> f = (+) 2
 Prelude> g = (*) 2
 Prelude> (<*>) [f,g] [1,2,3,4]
 [3,4,5,6,2,4,6,8]
+Prelude> x = 2
+Prelude> pure f <*> pure x
+4
+Prelude> pure (f x)
+4
 ```
-## Monad Law
+## Monad
 ### Definition
 ```
 class Applicative m => Monad m where
