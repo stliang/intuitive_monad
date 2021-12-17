@@ -1,6 +1,7 @@
+![Functional Programming](https://github.com/stliang/intuitive_monad/blob/main/glovebox.jpeg?raw=true)
 # An Algebraic Approach to Programming
 This exercise hope to show the similarity between composing polynomial equation and Functional Programing.  We will look at the laws of Algebraic objects such as Monoid, Functor, Applicative,and Monad because they made up the machinary of polynomial equation.
-![Functional Programming](https://github.com/stliang/intuitive_monad/blob/main/glovebox.jpeg?raw=true)
+
 ### Key Functions
 fmap function:
 ```
