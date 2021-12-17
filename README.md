@@ -181,6 +181,34 @@ Same law expressed in Kleisli arrow
 (g >=> h) >=> k  =  g >=> (h >=> k)
 ```
 The associativity of a binary operator allows for any number of operands to be combined by applying the binary operator with any arbitrary grouping to get the same well-defined result, just like the result of summing up a list of numbers is fully defined by the binary (+) operator no matter which parenthesization is used (yes, just like in folding a list of any type of monoidal values).
+
+## Monoid
+### Definition
+```
+class Monoid a where
+  mempty  :: a
+  mappend :: a -> a -> a
+
+  mconcat :: [a] -> a
+  mconcat = foldr mappend mempty
+```
+Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.
+
+### Monoid Instance
+```
+[a] is a Monoid, with mempty = [] and mappend = (++).
+```
+### Laws
+#### Identity Laws
+```
+mempty `mappend` x = x
+x `mappend` mempty = x
+```
+#### Associativity Law
+```
+(x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
+```
+
 ### References:
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
 - => Type [constraint](https://stackoverflow.com/questions/39084551/what-does-the-sign-mean-in-haskell)
