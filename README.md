@@ -31,9 +31,9 @@ Left-to-right Kleisli function:
 ```
 (>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
 ```
-Right-associative fold function:
+right-associative fold function:
 ```
-foldr :: (a -> b -> b) -> b -> t a -> b
+foldr :: Foldable => (a -> b -> b) -> b -> t a -> b
 ```
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
@@ -196,7 +196,7 @@ class Monoid a where
   mconcat :: [a] -> a
   mconcat = foldr mappend mempty
 ```
-Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.
+Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.  For example, 0 to the operation of addition (+) and 1 to the operation of multiplication (*).
 
 ### Monoid Instance
 ```
@@ -208,6 +208,7 @@ Many semigroups have a special element e for which the binary operation \oplus i
 mempty `mappend` x = x
 x `mappend` mempty = x
 ```
+Left and right identity laws
 #### Associativity Law
 ```
 (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
