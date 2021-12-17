@@ -131,12 +131,32 @@ Prelude> (<*>) [f,g] [1,2,3,4]
 [3,4,5,6,2,4,6,8]
 ```
 ## Monad Law
-### identity laws
+### Definition
+```
+class Applicative m => Monad m where
+  return :: a -> m a
+  (>>=)  :: m a -> (a -> m b) -> m b
+  (>>)   :: m a -> m b -> m b
+  m >> n = m >>= \_ -> n
+```
+### Monad Instance
+```
+instance Monad Maybe where
+  return :: a -> Maybe a
+  return = Just
+
+  (>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
+  (Just x) >>= g = g x
+  Nothing  >>= _ = Nothing
+```
+Maybe can be think of as a single cell list, that is may be there is something in the cell or may be not.
+### Laws
+#### Identity Laws
 ```
 return a >>= f = f
 m >>= return = m
 ```
-### associativity law
+#### Associativity Law
 ```
 (m >>= f) >>= g = m >>= (\x -> f x >>= g)
 ```
