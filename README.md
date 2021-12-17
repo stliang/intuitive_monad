@@ -214,6 +214,16 @@ Left and right identity laws
 (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
 ```
 
+Use Monoid to make ((,) e) an instance of Applicative:
+```
+instance Monoid e => Applicative ((,) e) where
+  pure :: Monoid e => a -> (e,a)
+  pure x = (mempty, x)
+
+  (<*>) :: Monoid e => (e,a -> b) -> (e,a) -> (e,b)
+  (u, f) <*> (v, x) = (u `mappend` v, f x)
+```
+
 ### References:
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
 - => Type [constraint](https://stackoverflow.com/questions/39084551/what-does-the-sign-mean-in-haskell)
