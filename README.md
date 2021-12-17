@@ -64,6 +64,14 @@ In value transformation inside a functor, the composition law gives us the abili
 Prelude> f = (+) 2
 Prelude> fmap f [1]
 [3]
+Prelude> f = (+) 2
+Prelude> g = (*) 2
+Prelude> q = fmap( g . f)
+Prelude> q [4]
+[12]
+Prelude> p = fmap g . fmap f
+Prelude> p [4]
+[12]
 ```
 ## Applicative
 ### Definition
