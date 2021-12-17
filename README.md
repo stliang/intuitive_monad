@@ -31,6 +31,10 @@ Left-to-right Kleisli function:
 ```
 (>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
 ```
+Right-associative fold function:
+```
+foldr :: (a -> b -> b) -> b -> t a -> b
+```
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
 
