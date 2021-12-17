@@ -115,10 +115,14 @@ A homomorphism is a map between two algebraic structures of the same type (that 
 ```
 u <*> pure y = pure ($ y) <*> u
 ```
+Intuitively, this says that when evaluating the application of an effectful function to a pure argument, the order in which we evaluate the function and its argument doesn't matter.
 #### Composition Law
 ```
 pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
 ```
+In some sense it is expressing a sort of associativity property of (<*>).
+
+Composition allows reassociating (<*>); interchange allows moving occurrences of pure leftwards; and homomorphism allows collapsing multiple adjacent occurrences of pure into one.
 ### Exercise
 ```
 Prelude> f = (+) 2
