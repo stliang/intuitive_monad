@@ -166,7 +166,7 @@ Maybe can be think of as a single cell list, that is may be there is something i
 return a >>= k  =  k a
 m >>= return    =  m
 ```
-Same law expressed Kleisli arrow
+Same law expressed in Kleisli arrow
 ```
 return >=> g  =  g
 g >=> return  =  g
@@ -176,7 +176,7 @@ These are the left and right identities.
 ```
 m >>= (\x -> k x >>= h)  =  (m >>= k) >>= h
 ```
-Same law expressed Kleisli arrow
+Same law expressed in Kleisli arrow
 ```
 (g >=> h) >=> k  =  g >=> (h >=> k)
 ```
