@@ -225,6 +225,7 @@ instance Monoid e => Applicative ((,) e) where
 ```
 
 ### References:
+- [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
 - => Type [constraint](https://stackoverflow.com/questions/39084551/what-does-the-sign-mean-in-haskell)
 - Operator [pronunciation](https://stackoverflow.com/questions/7746894/are-there-pronounceable-names-for-common-haskell-operators)
