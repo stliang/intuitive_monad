@@ -297,7 +297,7 @@ Prelude> ([1] `mappend` [2]) `mappend` [3]
 Prelude> [1] `mappend` ([2] `mappend` [3])
 [1,2,3]
 ```
-##
+## A Category
 A category is a collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object. A simple example is the category of sets, whose objects are sets and whose arrows are functions.
 
 <img src="https://github.com/stliang/intuitive_monad/blob/50d300d75ec2deef326db5d48a24d06f7debd76c/a_category.png" alt="A Category" width="200"/>
