@@ -213,7 +213,17 @@ The associativity of a binary operator allows for any number of operands to be c
 ### Exercise
 ```
 -- Identity
-
+Prelude> a = 2
+Prelude> k = \x -> [x]
+Prelude> return a >>= k
+[2]
+Prelude> k a
+[2]
+Prelude> m = [3]
+Prelude> m >>= return
+[3]
+Prelude> m
+[3]
 -- Associativity Test
 
 ```
