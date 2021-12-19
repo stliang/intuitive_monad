@@ -300,7 +300,7 @@ Prelude> [1] `mappend` ([2] `mappend` [3])
 ##
 A category is a collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object. A simple example is the category of sets, whose objects are sets and whose arrows are functions.
 
-![Functional Programming](https://github.com/stliang/intuitive_monad/blob/main/glovebox.jpeg?raw=true)
+![A Category](https://github.com/stliang/intuitive_monad/blob/50d300d75ec2deef326db5d48a24d06f7debd76c/a_category.png)
 
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
