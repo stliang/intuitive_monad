@@ -225,7 +225,17 @@ Prelude> m >>= return
 Prelude> m
 [3]
 -- Associativity Test
-
+Prelude> import Control.Monad
+Prelude Control.Monad> g = \x -> x + 2
+Prelude Control.Monad> g = \x -> [x + 2]
+Prelude Control.Monad> h = \y -> [y * 2]
+Prelude Control.Monad> k = \z -> [z + 4]
+Prelude Control.Monad> f = (g >=> h) >=> k
+Prelude Control.Monad> f 5
+[18]
+Prelude Control.Monad> f = g >=> (h >=> k)
+Prelude Control.Monad> f 5
+[18]
 ```
 ## Monoid
 ### Definition
