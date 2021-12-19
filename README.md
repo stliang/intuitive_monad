@@ -292,7 +292,10 @@ Prelude> [5] `mappend` mempty
 Prelude> [5]
 [5]
 -- Associativity Test
-
+Prelude> ([1] `mappend` [2]) `mappend` [3]
+[1,2,3]
+Prelude> [1] `mappend` ([2] `mappend` [3])
+[1,2,3]
 ```
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
