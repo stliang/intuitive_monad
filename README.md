@@ -134,6 +134,32 @@ In some sense it is expressing a sort of associativity property of (<*>).
 Composition allows reassociating (<*>); interchange allows moving occurrences of pure leftwards; and homomorphism allows collapsing multiple adjacent occurrences of pure into one.
 ### Exercise
 ```
+-- ID Test
+Prelude> pure id <*> [1]
+[1]
+-- Homomorphism Test
+Prelude> f = (*) 2
+Prelude> x = 2
+Prelude> pure f <*> pure x
+4
+Prelude> pure ( f x)
+4
+-- Interchange Test
+Prelude> u = [f]
+Prelude> y = 4
+Prelude> u <*> pure y
+[8]
+Prelude> pure ($ y) <*> u
+[8]
+-- Composition Test
+Prelude> g = (+) 6
+Prelude> u = [g]
+Prelude> h = (+) 7
+Prelude> v = [h]
+Prelude> w = [8]
+Prelude> pure (.) <*> u <*> v <*> w
+[21]
+-- Application of a list of functions
 Prelude> f = (+) 2
 Prelude> g = (*) 2
 Prelude> (<*>) [f,g] [1,2,3,4]
