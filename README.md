@@ -283,7 +283,14 @@ instance Monoid e => Applicative ((,) e) where
 ### Exercise
 ```
 -- Identity
-
+Prelude> mempty `mappend` [5]
+[5]
+Prelude> [5]
+[5]
+Prelude> [5] `mappend` mempty
+[5]
+Prelude> [5]
+[5]
 -- Associativity Test
 
 ```
