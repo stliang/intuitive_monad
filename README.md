@@ -224,7 +224,7 @@ Prelude> m >>= return
 [3]
 Prelude> m
 [3]
--- Associativity Test
+-- Associativity Test Kleisli Function
 Prelude> import Control.Monad
 Prelude Control.Monad> g = \x -> x + 2
 Prelude Control.Monad> g = \x -> [x + 2]
@@ -235,6 +235,12 @@ Prelude Control.Monad> f 5
 [18]
 Prelude Control.Monad> f = g >=> (h >=> k)
 Prelude Control.Monad> f 5
+[18]
+-- Associativity Test with Bind Function
+Prelude Control.Monad> m = [5]
+Prelude Control.Monad> m >>= (\x -> k x >>= h)
+[18]
+Prelude Control.Monad> (m >>= k) >>= h
 [18]
 ```
 ## Monoid
