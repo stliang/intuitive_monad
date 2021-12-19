@@ -210,6 +210,13 @@ Same law expressed in Kleisli arrow
 ```
 The associativity of a binary operator allows for any number of operands to be combined by applying the binary operator with any arbitrary grouping to get the same well-defined result, just like the result of summing up a list of numbers is fully defined by the binary (+) operator no matter which parenthesization is used (yes, just like in folding a list of any type of monoidal values).
 
+### Exercise
+```
+-- Identity
+
+-- Associativity Test
+
+```
 ## Monoid
 ### Definition
 ```
@@ -247,7 +254,13 @@ instance Monoid e => Applicative ((,) e) where
   (<*>) :: Monoid e => (e,a -> b) -> (e,a) -> (e,b)
   (u, f) <*> (v, x) = (u `mappend` v, f x)
 ```
+### Exercise
+```
+-- Identity
 
+-- Associativity Test
+
+```
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
