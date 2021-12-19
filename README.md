@@ -70,9 +70,12 @@ fmap (g . f) = fmap g . fmap f
 In value transformation inside a functor, the composition law gives us the ability to transform value with a compostion of functions.
 ### Exercise
 ```
-Prelude> f = (+) 2
-Prelude> fmap f [1]
-[3]
+-- ID Test
+Prelude> fmap id [2]
+[2]
+Prelude> id [2]
+[2]
+-- Composition Test
 Prelude> f = (+) 2
 Prelude> g = (*) 2
 Prelude> q = fmap( g . f)
@@ -164,11 +167,6 @@ Prelude> f = (+) 2
 Prelude> g = (*) 2
 Prelude> (<*>) [f,g] [1,2,3,4]
 [3,4,5,6,2,4,6,8]
-Prelude> x = 2
-Prelude> pure f <*> pure x
-4
-Prelude> pure (f x)
-4
 ```
 ## Monad
 ### Definition
