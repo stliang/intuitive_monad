@@ -214,9 +214,9 @@ Prelude> u = [g]
 Prelude> h = (+) 7
 Prelude> v = [h]
 Prelude> w = [8]
-Prelude> pure (.) <*> u <*> v <*> w
+Prelude> pure (.) <*> u <*> v <*> w  -- apply v and then u vis the (.) composition function
 [21]
-Prelude> u <*> (v <*> w)
+Prelude> u <*> (v <*> w)  -- apply v and then u
 [21]
 -- Application of a list of functions
 Prelude> f = (+) 2
