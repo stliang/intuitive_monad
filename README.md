@@ -304,6 +304,19 @@ A category is a collection of "objects" that are linked by "arrows". A category 
 
 <img src="https://github.com/stliang/intuitive_monad/blob/50d300d75ec2deef326db5d48a24d06f7debd76c/a_category.png" alt="A Category" width="200"/>
 
+## Map Reduce/Fold
+Map or fmap transforms a value in a term:
+```
+Prelude> xs = fmap (\x -> x / 2) [2,4,8,16]
+Prelude> xs
+[1.0,2.0,4.0,8.0]
+```
+Right Fold with associative operation such as foldr (+) 0 xs is equal to 1.0+(2.0+(4.0+(8.0 + 0)))
+```
+Prelude> foldr (+) 0 xs
+15.0
+```
+
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
