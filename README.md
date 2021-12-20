@@ -216,6 +216,8 @@ Prelude> v = [h]
 Prelude> w = [8]
 Prelude> pure (.) <*> u <*> v <*> w
 [21]
+Prelude> u <*> (v <*> w)
+[21]
 -- Application of a list of functions
 Prelude> f = (+) 2
 Prelude> g = (*) 2
