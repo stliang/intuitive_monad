@@ -38,6 +38,60 @@ foldr :: Foldable => (a -> b -> b) -> b -> t a -> b
 ### Class Hierarchy
 ![class hierarchy diagram](https://github.com/stliang/intuitive_monad/blob/main/Typeclassopedia-diagram.png)
 
+## Monoid
+### Definition
+```
+class Monoid a where
+  mempty  :: a
+  mappend :: a -> a -> a
+
+  mconcat :: [a] -> a
+  mconcat = foldr mappend mempty
+```
+Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.  For example, 0 to the operation of addition (+) and 1 to the operation of multiplication (*).
+
+### Monoid Instance
+```
+[a] is a Monoid, with mempty = [] and mappend = (++).
+```
+### Laws
+#### Identity Laws
+```
+mempty `mappend` x = x
+x `mappend` mempty = x
+```
+Left and right identity laws
+#### Associativity Law
+```
+(x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
+```
+
+Use Monoid to make ((,) e) an instance of Applicative:
+```
+instance Monoid e => Applicative ((,) e) where
+  pure :: Monoid e => a -> (e,a)
+  pure x = (mempty, x)
+
+  (<*>) :: Monoid e => (e,a -> b) -> (e,a) -> (e,b)
+  (u, f) <*> (v, x) = (u `mappend` v, f x)
+```
+### Exercise
+```
+-- Identity
+Prelude> mempty `mappend` [5]
+[5]
+Prelude> [5]
+[5]
+Prelude> [5] `mappend` mempty
+[5]
+Prelude> [5]
+[5]
+-- Associativity Test
+Prelude> ([1] `mappend` [2]) `mappend` [3]
+[1,2,3]
+Prelude> [1] `mappend` ([2] `mappend` [3])
+[1,2,3]
+```
 ## Functor
 ### Definition
 ```
@@ -242,60 +296,6 @@ Prelude Control.Monad> m >>= (\x -> k x >>= h)
 [18]
 Prelude Control.Monad> (m >>= k) >>= h
 [18]
-```
-## Monoid
-### Definition
-```
-class Monoid a where
-  mempty  :: a
-  mappend :: a -> a -> a
-
-  mconcat :: [a] -> a
-  mconcat = foldr mappend mempty
-```
-Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.  For example, 0 to the operation of addition (+) and 1 to the operation of multiplication (*).
-
-### Monoid Instance
-```
-[a] is a Monoid, with mempty = [] and mappend = (++).
-```
-### Laws
-#### Identity Laws
-```
-mempty `mappend` x = x
-x `mappend` mempty = x
-```
-Left and right identity laws
-#### Associativity Law
-```
-(x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
-```
-
-Use Monoid to make ((,) e) an instance of Applicative:
-```
-instance Monoid e => Applicative ((,) e) where
-  pure :: Monoid e => a -> (e,a)
-  pure x = (mempty, x)
-
-  (<*>) :: Monoid e => (e,a -> b) -> (e,a) -> (e,b)
-  (u, f) <*> (v, x) = (u `mappend` v, f x)
-```
-### Exercise
-```
--- Identity
-Prelude> mempty `mappend` [5]
-[5]
-Prelude> [5]
-[5]
-Prelude> [5] `mappend` mempty
-[5]
-Prelude> [5]
-[5]
--- Associativity Test
-Prelude> ([1] `mappend` [2]) `mappend` [3]
-[1,2,3]
-Prelude> [1] `mappend` ([2] `mappend` [3])
-[1,2,3]
 ```
 ## A Category
 A category is a collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object. A simple example is the category of sets, whose objects are sets and whose arrows are functions.
