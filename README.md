@@ -286,10 +286,10 @@ Prelude Control.Monad> g = \x -> x + 2
 Prelude Control.Monad> g = \x -> [x + 2]
 Prelude Control.Monad> h = \y -> [y * 2]
 Prelude Control.Monad> k = \z -> [z + 4]
-Prelude Control.Monad> f = (g >=> h) >=> k
+Prelude Control.Monad> f = (g >=> h) >=> k  -- Compose closure functions using Kleisli without executing the function
 Prelude Control.Monad> f 5
 [18]
-Prelude Control.Monad> f = g >=> (h >=> k)
+Prelude Control.Monad> f = g >=> (h >=> k)  -- Associative evalution of (h >=> k) resulting another function not a value
 Prelude Control.Monad> f 5
 [18]
 -- Associativity Test with Bind Function
