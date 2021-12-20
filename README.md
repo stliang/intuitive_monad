@@ -306,6 +306,8 @@ A category is a collection of "objects" that are linked by "arrows". A category 
 
 Function composition such as A -> B -> C is shown in Applicative and Monad laws.  Applicative composition's ended result is the transformation of a value in A to a value in C, thus the equivalent function of A -> C.  Monadic composition's end result is just the function A -> C.
 
+How big is a Category?  The boundary of a Category ends where there is no more arrow connecting to another object.
+
 ## Map Reduce/Fold
 Map or fmap transforms a value in a term:
 ```
