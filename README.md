@@ -214,9 +214,9 @@ Prelude> u = [g]
 Prelude> h = (+) 7
 Prelude> v = [h]
 Prelude> w = [8]
-Prelude> pure (.) <*> u <*> v <*> w  -- apply v and then u vis the (.) composition function
+Prelude> pure (.) <*> u <*> v <*> w  -- apply v on w and then u via the (.) composition function
 [21]
-Prelude> u <*> (v <*> w)  -- apply v and then u
+Prelude> u <*> (v <*> w)  -- apply v on w and then u
 [21]
 -- Application of a list of functions
 Prelude> f = (+) 2
@@ -304,7 +304,7 @@ A category is a collection of "objects" that are linked by "arrows". A category 
 
 <img src="https://github.com/stliang/intuitive_monad/blob/50d300d75ec2deef326db5d48a24d06f7debd76c/a_category.png" alt="A Category" width="200"/>
 
-Applicative A -> B -> C can be evaluated to a value but Monad A -> B -> C can only be evaluated to a function because of it depends on input value.
+Function composition such as A -> B -> C is shown in Applicative and Monad laws.  Applicative composition's ended result if the transformed value of A -> C while Monadic composition's end result is just the function A -> C.
 
 ## Map Reduce/Fold
 Map or fmap transforms a value in a term:
