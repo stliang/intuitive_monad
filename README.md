@@ -48,7 +48,7 @@ class Monoid a where
   mconcat :: [a] -> a
   mconcat = foldr mappend mempty
 ```
-Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.  For example, 0 to the operation of addition (+) and 1 to the operation of multiplication (*).
+Many semigroups have a special element e for which the binary operation \oplus is the identity, that is, e \oplus x = x \oplus e = x for every element x. Such a semigroup-with-identity-element is called a monoid.  For example, 0 to the operation of addition (+) or 1 to the operation of multiplication (*) or empty list append to a none empty list.
 
 ### Monoid Instance
 ```
