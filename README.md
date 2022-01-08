@@ -363,6 +363,9 @@ False -> B
 ```
 Note that some of the above transformation or arrows are repeated and there are only six unique transformations from Bool to RBG; however, **function is a grouping of transformations**.  As long as the groupings are unique, then the functions are unique.
 
+## Avoid Partial Function
+A partial function is a function not defined for all of its possible arguments.  As long as you can ensure any given input is mapped to a unique valid output, you have a total function.
+
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
