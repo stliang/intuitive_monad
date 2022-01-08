@@ -321,6 +321,48 @@ Prelude> foldr (+) 0 xs
 15.0
 ```
 
+## Function Type as Exponent
+For a function that takes an `a` type and returns a `b` type has the `b` to the power of `a` possible functions.  For example, given a function that transforms Bool -> RBG where RBG has three possible values namely R, B, and G, there are nine possible unique functions:
+
+```
+Function 1
+True  -> R
+False -> R
+
+Function 2
+True  -> B
+False -> B
+
+Function 3
+True  -> G
+False -> G
+
+Function 4
+True  -> R
+False -> B
+
+Function 5
+True  -> R
+False -> G
+
+Function 6
+True  -> B
+False -> R
+
+Function 7
+True  -> B
+False -> G
+
+Function 8
+True  -> G
+False -> R
+
+Function 9
+True  -> G
+False -> B
+```
+Note that some of the above transformation or arrows are repeated and there are only six unique transformations from Bool to RBG; however, function is a grouping of transformations.  As long as the groupings are unique, then the functions are unique.
+
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
 - Class [hierarchy](https://wiki.haskell.org/Typeclassopedia)
@@ -330,4 +372,5 @@ Prelude> foldr (+) 0 xs
 - Monad is [nesting of functions](https://intuitive-functional-programming.blogspot.com/2017/09/prove-functor-applicative-and-monad-are.html)
 - Functor, Applicative, and Monad [laws](https://mmhaskell.com/monads/laws)
 - Search Haskell Functions in [Hoogle](https://hoogle.haskell.org/)
+- Function as [Exponent](https://stackoverflow.com/questions/23922807/counting-of-algebraic-data-types)
 
