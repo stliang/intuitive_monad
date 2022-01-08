@@ -322,7 +322,7 @@ Prelude> foldr (+) 0 xs
 ```
 
 ## Function Type as Exponent
-For a function that takes an `a` type and returns a `b` type has the `b` to the power of `a` possible functions.  For example, given a function that transforms Bool -> RBG where RBG has three possible values namely R, B, and G, there are nine possible unique functions:
+For a function that takes an `a` type and returns a `b` type has the `b to the power of a` possible functions.  For example, given a function that transforms Bool -> RBG where RBG has three possible values namely R, B, and G, there are nine possible unique functions from 3^2=9:
 
 ```
 Function 1
