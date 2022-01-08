@@ -361,7 +361,7 @@ Function 9
 True  -> G
 False -> B
 ```
-Note that some of the above transformation or arrows are repeated and there are only six unique transformations from Bool to RBG; however, function is a grouping of transformations.  As long as the groupings are unique, then the functions are unique.
+Note that some of the above transformation or arrows are repeated and there are only six unique transformations from Bool to RBG; however, `function is a grouping of transformations`.  As long as the groupings are unique, then the functions are unique.
 
 ### References:
 - [Slides](https://docs.google.com/presentation/d/187Uf3EwmZEq_VXibjZ86ienC8IDR2jN5zuajZVq7drM/edit?usp=sharing)
